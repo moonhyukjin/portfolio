@@ -1,0 +1,90 @@
+// ==========================================================================
+// About
+// ==========================================================================
+@use '../abstracts' as *;
+
+.about {
+  position: relative;
+  z-index: $z-content;
+  // 핀 고정 섹션 — 정확히 뷰포트 높이, 패딩 없이 flexbox로 수직 중앙
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    // 모바일: 상단 정렬 + 하단 공간은 지구/달에게
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+}
+
+.about__container {
+  // 데스크탑: 좌측 절반에만 콘텐츠 배치 — 우측은 지구/달에게 양보
+  width: 50%;
+  max-width: 680px;
+  padding: 0 $section-pad-h;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 60px;
+  align-items: start;
+
+  @include tablet {
+    width: 60%;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 32px;
+  }
+
+  @include mobile {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 20px;
+  }
+}
+
+.about__label-wrap {
+  padding-top: 6px;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.about__counter {
+  font-family: $font-heading;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: $color-text-muted;
+  margin-bottom: 4px;
+
+  @include mobile {
+    margin-bottom: 0;
+  }
+}
+
+// ── 문장 목록 ──────────────────────────────────────────────────
+.about__sentences {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about__sentence {
+  font-family: $font-heading;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  color: $color-text;
+
+  // 인라인 카운터 숫자 강조
+  .js-count-inline {
+    color: $color-accent;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+}

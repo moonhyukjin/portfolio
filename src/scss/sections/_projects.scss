@@ -1,0 +1,718 @@
+// ==========================================================================
+// Projects — 가로 타임라인 (연혁선) + Modal
+//
+// 레이아웃:
+//   [2023]──●──────────●──[2022]──●──────────●──────────●──────────●──[2021]──●──[40+]
+//           카드(위)   카드(아래)  카드(위)   카드(아래)  카드(위)   카드(아래)  카드(위)
+// ==========================================================================
+@use '../abstracts' as *;
+
+// ── Section ───────────────────────────────────────────────────────
+.projects {
+  position: relative;
+  z-index: $z-content;
+  background: rgba($color-bg, 0.9);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Header ────────────────────────────────────────────────────────
+.projects__header {
+  flex-shrink: 0;
+  padding: 56px $section-pad-h 28px;
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 40px 20px 20px;
+  }
+
+  .section-label {
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1;
+  }
+}
+
+.projects__hint {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: $color-text-muted;
+  padding-bottom: 4px;
+  margin-left: auto;
+}
+
+// ── Track (가로 스크롤 컨테이너) ──────────────────────────────────
+.projects__timeline {
+  display: flex;
+  align-items: stretch;
+  padding: 0 $section-pad-h 0;
+  flex: 1;
+  will-change: transform;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// ── 카드 슬롯 공통 ────────────────────────────────────────────────
+// 3-row grid: 위쪽 카드 영역 | 연혁선 영역 | 아래쪽 카드 영역
+.tl-slot {
+  flex-shrink: 0;
+  width: 160px;
+  display: grid;
+  grid-template-rows: 1fr 64px 1fr;
+
+  // 카드 위치: above = row 1 하단, below = row 3 상단 (좌우 20% 겹침)
+  &--above > .project-card {
+    grid-row: 1;
+    align-self: end;
+    margin: 0 -40px 0;
+    --hover-ty: -4px;
+  }
+
+  &--below > .project-card {
+    grid-row: 3;
+    align-self: start;
+    margin: 0 -40px 0;
+    --hover-ty: 4px;
+  }
+}
+
+// ── 연혁선 영역 (가로선 + 점) ─────────────────────────────────────
+// .tl-slot__mid: 모든 슬롯 공통 (카드슬롯 grid-row: 2, 연도슬롯 유일 자식)
+.tl-slot__mid {
+  grid-row: 2;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // 가로 연혁선
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $color-border;
+    transform: translateY(-50%);
+  }
+}
+
+// ── 점 (dot) ──────────────────────────────────────────────────────
+.tl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent, #{$color-accent});
+  border: 2px solid $color-bg;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+
+  .project-card:hover ~ .tl-slot__mid & {
+    // transform: scale(1.4);
+  }
+}
+
+// ── 연도 슬롯 ─────────────────────────────────────────────────────
+.tl-year-slot {
+  flex-shrink: 0;
+  width: 80px;
+  margin-inline: 100px;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 3;
+  background: $color-bg;
+
+  .tl-slot__mid {
+    flex: 1;
+
+    // 연도 뱃지 영역은 위아래 연장선도 포함 (전체 슬롯 높이)
+    &::before {
+      top: 0;
+      height: 100%;
+      transform: none;
+    }
+  }
+}
+
+// ── 연도 라벨 ─────────────────────────────────────────────────────
+.tl-year-label {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  font-family: $font-heading;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  background: rgba($color-bg, 0.97);
+  padding: 5px 14px;
+  border: 1px solid $color-border;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+// ── Project card ──────────────────────────────────────────────────
+.project-card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  background: $color-bg-2;
+  cursor: pointer;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
+
+  &:hover {
+    border-color: rgba($color-accent, 0.4);
+    // transform: translateY(var(--hover-ty, 0));
+
+    .project-card__cta {
+      // letter-spacing: 0.1em;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+
+  // Featured
+  &--featured {
+    border-color: var(--accent, #{$color-accent});
+    box-shadow:
+      0 0 0 1px var(--accent, #{$color-accent}),
+      0 0 18px -4px var(--accent, #{$color-accent});
+
+    &:hover {
+      box-shadow:
+        0 0 0 1px var(--accent, #{$color-accent}),
+        0 0 28px -2px var(--accent, #{$color-accent});
+    }
+  }
+}
+
+// 카드 바디
+.project-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+// 카드 헤더: 타입 뱃지 + 번호
+.project-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.project-card__num {
+  font-family: $font-heading;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba($color-text, 0.3);
+}
+
+// 타입 뱃지 (신규작업 / 운영건 / 리뉴얼 작업)
+.project-card__category {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-heading;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 100px;
+
+  // 색상은 JS에서 각 프로젝트 accent 기준 inline style로 주입
+  color: var(--badge-color, $color-text-muted);
+  background: var(--badge-bg, rgba(255, 255, 255, 0.08));
+}
+
+.project-card__client {
+  font-family: $font-heading;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: $color-text-muted;
+  margin-bottom: 6px;
+}
+
+.project-card__title {
+  font-family: $font-heading;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: $color-text;
+  flex: 1;
+}
+
+.project-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid $color-border;
+}
+
+.project-card__year {
+  font-size: 11px;
+  color: $color-text-muted;
+}
+
+.project-card__cta {
+  font-size: 11px;
+  color: $color-accent;
+  letter-spacing: 0.05em;
+  transition: letter-spacing 0.2s;
+}
+
+// ── "+40 more" 슬롯 ───────────────────────────────────────────────
+.tl-slot--more {
+  width: 180px;
+  cursor: default;
+  display: flex;
+  align-items: stretch;
+
+  .tl-slot__mid {
+    flex: 1;
+    overflow: visible; // 박스가 위아래로 넘쳐도 OK
+
+    &::before {
+      top: 0;
+      height: 100%;
+      transform: none;
+    }
+  }
+}
+
+.tl-more-box {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px 16px;
+  border: 1px dashed rgba($color-accent, 0.3);
+  border-radius: 12px;
+  background: rgba($color-bg-2, 0.95);
+  min-width: 140px;
+}
+
+.tl-more__num {
+  font-family: $font-heading;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: $color-accent;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tl-more__label {
+  font-family: $font-heading;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 8px;
+}
+
+.tl-more__sub {
+  font-size: 11px;
+  color: $color-text-muted;
+  line-height: 1.6;
+}
+
+// ── Year Navigation ───────────────────────────────────────────────
+.projects__year-nav {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: all;
+
+  @include mobile {
+    left: 0;
+    right: 0;
+    transform: none;
+    padding: 0 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+}
+
+.year-nav__label {
+  font-family: $font-heading;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: $color-text-muted;
+  margin-right: 4px;
+}
+
+.year-nav__btn {
+  font-family: $font-heading;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid $color-border;
+  background: rgba($color-bg, 0.85);
+  color: $color-text-muted;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  &:hover {
+    color: $color-text;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.is-active {
+    color: $color-bg;
+    background: $color-accent;
+    border-color: $color-accent;
+  }
+}
+
+// ── Modal ─────────────────────────────────────────────────────────
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.project-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.project-modal__container {
+  position: relative;
+  z-index: 1;
+  background: $color-bg-2;
+  border: 1px solid $color-border;
+  border-radius: 18px;
+  width: min(92vw, 880px);
+  max-height: 88vh;
+  overflow: hidden;
+}
+
+.project-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid $color-border;
+  border-radius: 50%;
+  color: $color-text;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.project-modal__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 440px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-modal__image {
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // 그라디언트 배경 전용 하단 라인 (이미지 없을 때만)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    height: 2px;
+    background: var(--accent, #{$color-accent});
+    opacity: 0.6;
+    border-radius: 2px;
+    transition: opacity 0.3s;
+  }
+
+  // 이미지 있을 때: 어두운 배경 + 하단 라인 숨김
+  &.has-image {
+    background: $color-bg !important;
+
+    &::after {
+      opacity: 0;
+    }
+  }
+}
+
+// 실제 이미지가 있을 때
+.project-modal__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  padding: 16px;
+  cursor: zoom-in;
+}
+
+// ── 이미지 라이트박스 ──────────────────────────────────────────────
+.img-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal + 100;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  cursor: zoom-out;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+    cursor: default;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: $color-text;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+  }
+}
+
+.project-modal__deco {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--accent, #{$color-accent});
+  opacity: 0.25;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--accent, #{$color-accent});
+    inset: 20px;
+    opacity: 0.5;
+  }
+  &::after {
+    inset: 40px;
+    opacity: 1;
+  }
+}
+
+.project-modal__info {
+  padding: 40px 36px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-modal__category {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 10px;
+}
+
+.project-modal__title {
+  font-family: $font-heading;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-text;
+  margin-bottom: 16px;
+}
+
+.project-modal__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $color-border;
+}
+
+.project-modal__client {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text;
+}
+
+.project-modal__period {
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.project-modal__role-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  margin-bottom: 4px;
+}
+
+.project-modal__role {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text;
+  margin-bottom: 20px;
+}
+
+.project-modal__desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba($color-text, 0.75);
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.project-modal__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-tag {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-modal__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--accent, #{$color-accent});
+  color: var(--accent, #{$color-accent});
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: background $transition-base, color $transition-base;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: var(--accent, #{$color-accent});
+    color: $color-bg;
+  }
+}

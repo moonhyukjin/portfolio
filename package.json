@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{js,scss}\" \"index.html\"",
+    "format:check": "prettier --check \"src/**/*.{js,scss}\" \"index.html\""
   },
   "devDependencies": {
+    "prettier": "^3.8.1",
     "vite": "^7.3.1"
   },
   "dependencies": {
     "gsap": "^3.14.2",
-    "sass": "^1.97.3"
+    "lenis": "^1.3.17",
+    "pretendard": "^1.3.9",
+    "sass": "^1.97.3",
+    "three": "^0.182.0"
   }
 }

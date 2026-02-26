@@ -1,0 +1,37 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+// Colors
+$color-bg: #060a0e;
+$color-bg-2: #0a1520;
+$color-bg-3: #0d1b2a;
+$color-text: #e8f0f8;
+$color-text-muted: #5a7080;
+$color-accent: #00c8e8;
+$color-accent-dim: rgba(0, 200, 232, 0.15);
+$color-border: rgba(255, 255, 255, 0.06);
+
+// Typography
+$font-heading: 'Pretendard Variable', 'Pretendard', sans-serif;
+$font-body: 'Pretendard Variable', 'Pretendard', sans-serif;
+
+// Spacing
+$container-max: 1400px;
+$section-pad-v: 120px;
+$section-pad-h: 40px;
+
+// Breakpoints
+$bp-mobile: 768px;
+$bp-tablet: 1024px;
+$bp-desktop: 1280px;
+
+// Transitions
+$transition-base: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+$transition-slow: 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+// Z-index layers
+$z-canvas: 0;
+$z-content: 1;
+$z-nav: 100;
+$z-modal: 200;

@@ -1,0 +1,41 @@
+// ==========================================================================
+// Main SCSS Entry — modern @use syntax (Dart Sass)
+// ==========================================================================
+
+// Base
+@use 'base/reset';
+@use 'base/typography';
+
+// Components
+@use 'components/nav';
+
+// Sections
+@use 'sections/hero';
+@use 'sections/about';
+@use 'sections/skills';
+@use 'sections/projects';
+@use 'sections/contact';
+
+// ==========================================================================
+// Global Utilities
+// ==========================================================================
+@use 'abstracts' as *;
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+html.is-loading {
+  overflow: hidden;
+  body {
+    pointer-events: none;
+  }
+}

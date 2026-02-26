@@ -1,0 +1,253 @@
+// ==========================================================================
+// Skills & Experience
+// ==========================================================================
+@use '../abstracts' as *;
+
+.skills {
+  position: relative;
+  z-index: $z-content;
+  background: rgba($color-bg, 0.82);
+  padding: 120px $section-pad-h;
+  border-top: 1px solid $color-border;
+
+  @include mobile {
+    padding: 80px 20px;
+  }
+}
+
+.skills__container {
+  @include container;
+}
+
+.skills__header {
+  margin-bottom: 80px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+
+  @include mobile {
+    margin-bottom: 48px;
+  }
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 100px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-bottom: 64px;
+  }
+}
+
+.skill-card {
+  background: $color-bg-2;
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background $transition-base;
+  opacity: 0;
+  transform: translateY(30px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $color-accent;
+    transition: width 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  &:hover {
+    background: $color-bg-3;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.skill-card__category {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 20px;
+}
+
+.skill-card__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 13px;
+  color: $color-text-muted;
+  padding: 6px 14px;
+  border: 1px solid $color-border;
+  border-radius: 100px;
+  transition:
+    color $transition-base,
+    border-color $transition-base;
+
+  &:hover {
+    color: $color-text;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// Experience timeline
+.experience {
+  border-top: 1px solid $color-border;
+  padding-top: 80px;
+
+  @include mobile {
+    padding-top: 56px;
+  }
+}
+
+.experience__header {
+  margin-bottom: 56px;
+}
+
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.experience__item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 40px;
+  padding: 36px 0;
+  border-bottom: 1px solid $color-border;
+  opacity: 0;
+  transform: translateY(20px);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 28px 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.experience__year {
+  font-size: 13px;
+  color: $color-text-muted;
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+}
+
+.experience__content {
+}
+
+.experience__role {
+  font-family: $font-heading;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.experience__company {
+  font-size: 14px;
+  color: $color-accent;
+  margin-bottom: 12px;
+}
+
+.experience__desc {
+  font-size: 14px;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+// Education
+.education {
+  border-top: 1px solid $color-border;
+  padding-top: 80px;
+  margin-top: 80px;
+
+  @include mobile {
+    padding-top: 56px;
+    margin-top: 56px;
+  }
+}
+
+.education__header {
+  margin-bottom: 56px;
+}
+
+.education__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.education__item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 40px;
+  padding: 36px 0;
+  border-bottom: 1px solid $color-border;
+  opacity: 0;
+  transform: translateY(20px);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 28px 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.education__year {
+  font-size: 13px;
+  color: $color-text-muted;
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+}
+
+.education__content {
+}
+
+.education__course {
+  font-family: $font-heading;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.education__org {
+  font-size: 14px;
+  color: $color-accent;
+  margin-bottom: 12px;
+}
+
+.education__desc {
+  font-size: 14px;
+  color: $color-text-muted;
+  line-height: 1.7;
+}

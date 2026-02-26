@@ -1,0 +1,43 @@
+// ==========================================================================
+// Typography
+// ==========================================================================
+@use '../abstracts' as *;
+
+.section-label {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-family: $font-heading;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: $color-text;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: $color-text-muted;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+// Word split for animations
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+}

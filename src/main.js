@@ -1,24 +1,48 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+/**
+ * main.js — Portfolio entry point
+ *
+ * Init order:
+ *  1. SCSS styles
+ *  2. Lenis smooth scroll + GSAP ScrollTrigger
+ *  3. Three.js Earth scene
+ *  4. Section animations
+ *  5. Navigation
+ */
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+import './scss/main.scss';
 
-setupCounter(document.querySelector('#counter'))
+import { initScroll } from './js/scroll.js';
+import { initEarth } from './js/earth.js';
+import { initNav } from './js/nav.js';
+import { initHero } from './js/hero.js';
+import { initAbout } from './js/about.js';
+import { initSkills } from './js/skills.js';
+import { initProjects } from './js/projects.js';
+import { initContact } from './js/contact.js';
+
+// ── 1. Smooth scroll (must be first) ─────────────────────────────
+initScroll();
+
+// ── 2. Three.js Earth ────────────────────────────────────────────
+const earth = initEarth();
+
+// ── 3. Section animations ─────────────────────────────────────────
+// Wait one tick so GSAP ScrollTrigger can measure layout
+requestAnimationFrame(() => {
+  initHero(earth);
+  initAbout(earth);
+  initSkills();
+  initProjects();
+  initContact();
+  initNav();
+
+  // 초기화 완료 → 로더 제거
+  const loader = document.getElementById('page-loader');
+  document.documentElement.classList.remove('is-loading');
+  document.body.style.opacity = '';
+  if (loader) {
+    loader.classList.add('is-hidden');
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+  }
+});

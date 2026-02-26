@@ -1,0 +1,174 @@
+// ==========================================================================
+// Navigation
+// ==========================================================================
+@use '../abstracts' as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-nav;
+  padding: 24px 40px;
+  @include flex-between;
+  transition:
+    padding $transition-base,
+    background $transition-base;
+
+  @include mobile {
+    padding: 20px;
+  }
+
+  &.scrolled {
+    padding: 16px 40px;
+    background: rgba($color-bg, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid $color-border;
+
+    @include mobile {
+      padding: 14px 20px;
+    }
+  }
+}
+
+.nav__logo {
+  font-family: $font-heading;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: $color-text;
+  z-index: 1;
+  transition: color $transition-base;
+
+  span {
+    color: $color-accent;
+  }
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @include mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background: $color-bg;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 0;
+  }
+
+  a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    position: relative;
+    transition: color $transition-base;
+
+    @include mobile {
+      font-size: 28px;
+      font-family: $font-heading;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      color: $color-text;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $color-accent;
+      transition: width $transition-base;
+    }
+
+    &:hover,
+    &.is-active {
+      color: $color-text;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.nav__cta {
+  padding: 10px 24px;
+  border: 1px solid $color-border;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text !important;
+  transition:
+    background $transition-base,
+    border-color $transition-base,
+    color $transition-base !important;
+
+  &::after {
+    display: none !important;
+  }
+
+  &:hover {
+    background: $color-accent !important;
+    border-color: $color-accent !important;
+    color: $color-bg !important;
+  }
+}
+
+// Hamburger
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1;
+  padding: 4px;
+
+  @include mobile {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: $color-text;
+    transition:
+      transform 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+      opacity 0.3s;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+  }
+}

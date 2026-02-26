@@ -1,13 +1,385 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko" class="is-loading">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <meta name="description" content="Web Publisher Portfolio" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>MHJ — Web Publisher</title>
+    <style>
+      html.is-loading body {
+        opacity: 0;
+      }
+      #page-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #05050a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.4s ease;
+      }
+      #page-loader.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #page-loader span {
+        font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #fff;
+        animation: pulse 1s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="page-loader"><span>MHJ</span></div>
+    <!-- ============================================================
+         Navigation
+    ============================================================ -->
+    <header class="nav" id="nav" role="banner">
+      <a href="#hero" class="nav__logo" aria-label="홈으로"> MH<span>J</span> </a>
+
+      <nav aria-label="주요 메뉴">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact" class="nav__cta">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav__hamburger" id="navHamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- ============================================================
+         Canvas (Three.js Earth — Fixed Layer)
+    ============================================================ -->
+    <div class="canvas-container" aria-hidden="true">
+      <canvas class="hero__canvas" id="earthCanvas"></canvas>
+    </div>
+
+    <main>
+      <!-- ==========================================================
+           01. Hero
+      ========================================================== -->
+      <section class="hero" id="hero" aria-label="인트로">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Hello, I'm</p>
+
+          <h1 class="hero__name" aria-label="이름: Moon Hyukjin">
+            <span class="hero__name-line">
+              <span class="hero__name-inner">Moon Hyukjin</span>
+            </span>
+          </h1>
+
+          <p class="hero__title">
+            Web Publisher
+            <!-- <span style="color: var(--accent, #00c8e8)">·</span> Frontend Developer -->
+          </p>
+
+          <!-- <a href="#about" class="hero__scroll" aria-label="아래로 스크롤">
+            <span class="hero__scroll-line"></span>
+            <span>Scroll</span>
+          </a> -->
+        </div>
+
+        <div class="hero__badge" aria-hidden="true">
+          <span>Scroll</span>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           02. About
+      ========================================================== -->
+      <section class="about" id="about" aria-label="소개">
+        <div class="about__container">
+          <div class="about__label-wrap">
+            <p class="about__counter section-label">01</p>
+            <p class="section-label">About</p>
+          </div>
+
+          <div class="about__body">
+            <div class="about__sentences">
+              <p class="about__sentence">
+                5년차 웹 퍼블리셔로, 삼성카드, 롯데, BNP파리바 등
+                <span class="js-count-inline" data-target="40">40</span>개 이상의 프로젝트를
+                퍼블리싱했습니다.
+              </p>
+              <p class="about__sentence">
+                코드보다 결과물을 먼저 생각합니다. 사용자가 자연스럽게 느끼는 인터랙션, 픽셀 단위의
+                섬세함이 작업 기준입니다.
+              </p>
+              <p class="about__sentence">
+                현재는 React와 Next.js를 익히며, 퍼블리싱과 개발의 경계를 넘어서고 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           03. Skills & Experience
+      ========================================================== -->
+      <section class="skills" id="skills" aria-label="스킬 및 경력">
+        <div class="skills__container">
+          <div class="skills__header">
+            <div>
+              <p class="section-label">02 / Skills</p>
+              <h2 class="section-title">Skills &<br />Expertise</h2>
+            </div>
+            <p class="section-subtitle">실무에서 검증된 기술로, 디자인을 그대로 구현합니다.</p>
+          </div>
+
+          <div class="skills__grid">
+            <div class="skill-card">
+              <p class="skill-card__category">Publishing</p>
+              <ul class="skill-card__items">
+                <li class="skill-tag">HTML5</li>
+                <li class="skill-tag">CSS3</li>
+                <li class="skill-tag">SCSS / Sass</li>
+                <li class="skill-tag">크로스브라우징</li>
+                <li class="skill-tag">웹 접근성</li>
+                <li class="skill-tag">반응형 웹</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <p class="skill-card__category">Programming</p>
+              <ul class="skill-card__items">
+                <li class="skill-tag">JavaScript (ES6+)</li>
+                <li class="skill-tag">TypeScript</li>
+                <li class="skill-tag">React</li>
+                <li class="skill-tag">Next.js</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <p class="skill-card__category">Animation & 3D</p>
+              <ul class="skill-card__items">
+                <li class="skill-tag">GSAP / ScrollTrigger</li>
+                <li class="skill-tag">Three.js</li>
+                <li class="skill-tag">Lenis</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <p class="skill-card__category">Tools</p>
+              <ul class="skill-card__items">
+                <li class="skill-tag">Git / GitHub</li>
+                <li class="skill-tag">Figma</li>
+                <li class="skill-tag">Adobe XD</li>
+                <li class="skill-tag">Webpack / Vite</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="experience">
+            <div class="experience__header">
+              <p class="section-label">Experience</p>
+            </div>
+            <ul class="experience__list">
+              <li class="experience__item">
+                <span class="experience__year">2020.09 — 2025.05</span>
+                <div class="experience__content">
+                  <h3 class="experience__role">웹 퍼블리셔 / 리더</h3>
+                  <p class="experience__company">(주) 애드업 · 디지털 콘텐츠 전략 연구실</p>
+                  <p class="experience__desc">
+                    삼성카드, LG그룹, 롯데, BNP파리바 카디프생명, KG MOBILITY, 폭스바겐 등 40개 이상
+                    프로젝트 퍼블리싱. 브랜드 사이트, 프로모션 페이지, 금융·공공기관 사이트 등
+                    다양한 도메인에서 HTML/CSS/JavaScript 기반 반응형 마크업 및 GSAP 인터랙션 구현.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Education -->
+          <div class="education">
+            <div class="education__header">
+              <p class="section-label">Education</p>
+            </div>
+            <ul class="education__list">
+              <li class="education__item">
+                <span class="education__year">2025.08 — 2026.02</span>
+                <div class="education__content">
+                  <h3 class="education__course">프론트엔드 개발 부트캠프</h3>
+                  <p class="education__org">멋쟁이사자처럼</p>
+                  <p class="education__desc">
+                    React, TypeScript, Next.js 웹 프론트엔드 심화 과정 수료.
+                  </p>
+                </div>
+              </li>
+              <li class="education__item">
+                <span class="education__year">2019.09 — 2020.02</span>
+                <div class="education__content">
+                  <h3 class="education__course">반응형 디지털 웹디자인기능사 취득</h3>
+                  <p class="education__org">더조은컴퓨터아트학원</p>
+                  <p class="education__desc">
+                    반응형 웹디자인 및 웹 퍼블리싱 기능사 자격 취득 과정 수료.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           04. Projects
+      ========================================================== -->
+      <section class="projects" id="projects" aria-label="프로젝트">
+        <!-- Section header -->
+        <div class="projects__header">
+          <p class="section-label">03 / Projects</p>
+          <h2 class="section-title">Selected<br />Work</h2>
+          <p class="projects__hint">scroll →</p>
+        </div>
+
+        <!-- Year navigation -->
+        <nav class="projects__year-nav" id="projectsYearNav" aria-label="연도별 이동">
+          <span class="year-nav__label">YEAR</span>
+          <button class="year-nav__btn is-active" data-year="2026">2026</button>
+          <button class="year-nav__btn" data-year="2025">2025</button>
+          <button class="year-nav__btn" data-year="2024">2024</button>
+          <button class="year-nav__btn" data-year="2023">2023</button>
+          <button class="year-nav__btn" data-year="2022">2022</button>
+          <button class="year-nav__btn" data-year="2021">2021</button>
+          <button class="year-nav__btn" data-year="2020">2020</button>
+        </nav>
+
+        <!-- Timeline — JS로 렌더링 -->
+        <div class="projects__timeline" id="projectsTimeline"></div>
+
+        <!-- Modal -->
+        <div
+          class="project-modal"
+          id="projectModal"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div class="project-modal__backdrop"></div>
+          <div class="project-modal__container">
+            <button class="project-modal__close" aria-label="닫기">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 2l12 12M14 2L2 14" />
+              </svg>
+            </button>
+            <div class="project-modal__body">
+              <!-- Left: visual -->
+              <div class="project-modal__image">
+                <img class="project-modal__img" id="modalImg" alt="" hidden />
+                <div class="project-modal__deco" id="modalDeco"></div>
+              </div>
+              <!-- Right: info -->
+              <div class="project-modal__info">
+                <p class="project-modal__category" id="modalCategory"></p>
+                <h3 class="project-modal__title" id="modalTitle"></h3>
+                <div class="project-modal__meta">
+                  <span class="project-modal__client" id="modalClient"></span>
+                  <span class="project-modal__period" id="modalPeriod"></span>
+                </div>
+                <p class="project-modal__role-label">역할</p>
+                <p class="project-modal__role" id="modalRole"></p>
+                <p class="project-modal__desc" id="modalDesc"></p>
+                <ul class="project-modal__stack" id="modalStack"></ul>
+                <a
+                  class="project-modal__link"
+                  id="modalLink"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  hidden
+                >
+                  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           05. Contact
+      ========================================================== -->
+      <section class="contact" id="contact" aria-label="연락처">
+        <div class="contact__container">
+          <p class="section-label">04 / Contact</p>
+
+          <h2 class="contact__heading">
+            <span class="contact__heading-line">
+              <span class="contact__heading-inner">Let's</span>
+            </span>
+            <span class="contact__heading-line">
+              <span class="contact__heading-inner">Work.</span>
+            </span>
+          </h2>
+
+          <div class="contact__links">
+            <a
+              href="mailto:gurwlsmoon@gmail.com"
+              class="contact__link contact__link--primary"
+              aria-label="이메일 보내기"
+            >
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="1" y="3" width="14" height="10" rx="2" />
+                <path d="M1 6l7 4 7-4" />
+              </svg>
+              gurwlsmoon@gmail.com
+            </a>
+            <a
+              href="https://github.com/moonhyukjin"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact__link"
+              aria-label="GitHub 열기"
+            >
+              <svg viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                />
+              </svg>
+              GitHub
+            </a>
+          </div>
+
+          <div class="contact__footer">
+            <p class="contact__footer-copy">&copy; 2026 MHJ. All rights reserved.</p>
+            <div class="contact__footer-links">
+              <a href="mailto:gurwlsmoon@gmail.com">Email</a>
+              <a href="https://github.com/moonhyukjin" target="_blank" rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+
+          <p class="contact__bg-text" aria-hidden="true">CONTACT</p>
+        </div>
+      </section>
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
