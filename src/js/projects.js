@@ -779,6 +779,11 @@ function _openModal(modal, data) {
   const imgEl = modal.querySelector('.project-modal__image');
   const img = modal.querySelector('#modalImg');
   const deco = modal.querySelector('#modalDeco');
+
+  // 이전 이미지 초기화 (다른 모달 열 때 잔상 방지)
+  img.src = '';
+  img.hidden = true;
+
   if (data.image) {
     img.src = data.image;
     img.alt = data.title.replace('\n', ' ');
