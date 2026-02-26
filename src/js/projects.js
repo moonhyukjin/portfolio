@@ -710,7 +710,6 @@ function _initModal(track) {
   const modal = document.getElementById('projectModal');
   if (!modal) return;
 
-  const backdrop = modal.querySelector('.project-modal__backdrop');
   const closeBtn = modal.querySelector('.project-modal__close');
   const modalImg = modal.querySelector('#modalImg');
   const { lb, lbImg } = _initLightbox();
@@ -739,7 +738,10 @@ function _initModal(track) {
   });
 
   const close = () => _closeModal(modal);
-  backdrop.addEventListener('click', close);
+  // container 바깥(배경) 클릭 시 닫기
+  modal.addEventListener('click', (e) => {
+    if (!e.target.closest('.project-modal__container')) close();
+  });
   closeBtn.addEventListener('click', close);
   document.addEventListener('keydown', (e) => {
     if (
@@ -795,10 +797,16 @@ function _openModal(modal, data) {
   }
 
   modal.dataset.savedScrollY = window.scrollY; // 현재 위치 저장
+  modal.scrollTop = 0;
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   getLenis()?.stop();
+
+  // Lenis가 wheel 이벤트를 전역으로 막으므로, 모달 영역에서는 stopPropagation으로 분리
+  const onWheel = (e) => e.stopPropagation();
+  modal.addEventListener('wheel', onWheel, { passive: true });
+  modal._wheelHandler = onWheel;
 
   gsap.fromTo(
     '.project-modal__container',
@@ -816,7 +824,11 @@ function _closeModal(modal) {
     onComplete: () => {
       modal.classList.remove('is-open');
       modal.setAttribute('aria-hidden', 'true');
-      // 저장된 위치로 먼저 복원 후 overflow 해제 (ST 점프 방지)
+      if (modal._wheelHandler) {
+        modal.removeEventListener('wheel', modal._wheelHandler);
+        delete modal._wheelHandler;
+      }
+      // 저장된 위치로 먼저 복원 후 Lenis 재개 (ST 점프 방지)
       window.scrollTo({ top: parseInt(modal.dataset.savedScrollY ?? 0, 10), behavior: 'instant' });
       document.body.style.overflow = '';
       getLenis()?.start();
