@@ -14,6 +14,7 @@ const PROJECTS = [
   {
     index: 0,
     num: '01',
+    contribution: 100,
     client: 'SPC그룹',
     title: 'SPC 매거진\n리뉴얼',
     year: '2025',
@@ -28,6 +29,7 @@ const PROJECTS = [
   {
     index: 1,
     num: '02',
+    contribution: 100,
     client: '비비테리아',
     title: '비비테리아\n페이지 구축',
     year: '2024',
@@ -39,6 +41,7 @@ const PROJECTS = [
   {
     index: 2,
     num: '03',
+    contribution: 100,
     client: '라미체',
     title: '라미체\n몽골어 버전',
     year: '2024',
@@ -50,6 +53,7 @@ const PROJECTS = [
   {
     index: 3,
     num: '04',
+    contribution: 100,
     client: 'BGF',
     title: 'BGF SC 포탈\n추가 개발',
     year: '2024',
@@ -61,6 +65,7 @@ const PROJECTS = [
   {
     index: 4,
     num: '05',
+    contribution: 100,
     client: 'MY names',
     title: 'MY names\n소개 페이지',
     year: '2024',
@@ -87,6 +92,7 @@ const PROJECTS = [
   {
     index: 6,
     num: '07',
+    contribution: 100,
     client: '전기기술인협회',
     title: '전기기술인협회\n홈페이지 리뉴얼',
     year: '2023',
@@ -100,6 +106,7 @@ const PROJECTS = [
   {
     index: 7,
     num: '08',
+    contribution: 70,
     client: 'Easy Charger',
     title: 'Easy Charger\n웹앱',
     year: '2023',
@@ -113,6 +120,7 @@ const PROJECTS = [
   {
     index: 8,
     num: '09',
+    contribution: 40,
     client: 'KG MOBILITY',
     title: 'KG MOBILITY\n브랜드 사이트',
     year: '2023',
@@ -126,6 +134,7 @@ const PROJECTS = [
   {
     index: 9,
     num: '10',
+    contribution: 40,
     client: '삼성카드',
     title: '삼성카드\n프로모션 운영',
     year: '2023',
@@ -141,6 +150,7 @@ const PROJECTS = [
   {
     index: 10,
     num: '11',
+    contribution: 100,
     client: '서울특별시',
     title: '서울시립병원\n소개 페이지',
     year: '2022',
@@ -153,6 +163,7 @@ const PROJECTS = [
   {
     index: 11,
     num: '12',
+    contribution: 30,
     client: 'LG그룹',
     title: 'LG ESG\n사이트 구축',
     year: '2022',
@@ -166,6 +177,7 @@ const PROJECTS = [
   {
     index: 12,
     num: '13',
+    contribution: 60,
     client: '사자고',
     title: '사자고\n쇼핑몰',
     year: '2022',
@@ -178,6 +190,7 @@ const PROJECTS = [
   {
     index: 13,
     num: '14',
+    contribution: 50,
     client: 'BNP파리바 카디프생명',
     title: 'BNP파리바 카디프\n홈페이지 운영',
     year: '2022',
@@ -191,6 +204,7 @@ const PROJECTS = [
   {
     index: 14,
     num: '15',
+    contribution: 40,
     client: '롯데이노베이트',
     title: '롯데 NFT\n플랫폼',
     year: '2022',
@@ -204,6 +218,7 @@ const PROJECTS = [
   {
     index: 15,
     num: '16',
+    contribution: 100,
     client: 'GRU',
     title: 'GRU\n주보',
     year: '2022',
@@ -215,6 +230,7 @@ const PROJECTS = [
   {
     index: 16,
     num: '17',
+    contribution: 100,
     client: '킹덤스토리',
     title: '킹덤스토리\n게임 프로모션',
     year: '2022',
@@ -227,6 +243,7 @@ const PROJECTS = [
   {
     index: 17,
     num: '18',
+    contribution: 40,
     client: '제나',
     title: '제나\n통합 관리자',
     year: '2022',
@@ -238,6 +255,7 @@ const PROJECTS = [
   {
     index: 18,
     num: '19',
+    contribution: 50,
     client: '헤이마리',
     title: '헤이마리\n쇼핑몰',
     year: '2022',
@@ -252,6 +270,7 @@ const PROJECTS = [
   {
     index: 19,
     num: '20',
+    contribution: 100,
     client: '폭스바겐',
     title: '폭스바겐 아테온\n프로모션',
     year: '2021',
@@ -263,6 +282,7 @@ const PROJECTS = [
   {
     index: 20,
     num: '21',
+    contribution: 100,
     client: '제나',
     title: '제나 BSMA\n플랫폼',
     year: '2021',
@@ -274,6 +294,7 @@ const PROJECTS = [
   {
     index: 21,
     num: '22',
+    contribution: 40,
     client: '코맥스',
     title: '코맥스\n브랜드 사이트',
     year: '2021',
@@ -287,6 +308,7 @@ const PROJECTS = [
   {
     index: 22,
     num: '23',
+    contribution: 80,
     client: '소프트웨어중심협의회 · 경기대',
     title: '소프트웨어중심협의회\n경기대학교',
     year: '2021',
@@ -299,6 +321,7 @@ const PROJECTS = [
   {
     index: 23,
     num: '24',
+    contribution: 50,
     client: '디지털트윈',
     title: '디지털트윈\n플랫폼 소개',
     year: '2021',
@@ -310,6 +333,7 @@ const PROJECTS = [
   {
     index: 24,
     num: '25',
+    contribution: 50,
     client: 'SKYER, INC',
     title: 'SKYER, INC\n브랜드 사이트',
     year: '2021',
@@ -322,6 +346,7 @@ const PROJECTS = [
   {
     index: 25,
     num: '26',
+    contribution: 100,
     client: '올코딩',
     title: '올코딩\n교육 플랫폼',
     year: '2021',
@@ -334,6 +359,7 @@ const PROJECTS = [
   {
     index: 26,
     num: '27',
+    contribution: 50,
     client: '반품마켓',
     title: '반품마켓\n쇼핑몰',
     year: '2021',
@@ -346,6 +372,7 @@ const PROJECTS = [
   {
     index: 27,
     num: '28',
+    contribution: 40,
     client: '트리플에이전시',
     title: '커리업로드\nReact Native 앱',
     year: '2021',
@@ -359,6 +386,7 @@ const PROJECTS = [
   {
     index: 28,
     num: '29',
+    contribution: 100,
     client: 'WWF 코리아',
     title: 'WWF\n어스아워 캠페인',
     year: '2021',
@@ -371,6 +399,7 @@ const PROJECTS = [
   {
     index: 29,
     num: '30',
+    contribution: 70,
     client: '잼메이츠',
     title: '잼메이츠\n커뮤니티 플랫폼',
     year: '2021',
@@ -383,6 +412,7 @@ const PROJECTS = [
   {
     index: 30,
     num: '31',
+    contribution: 40,
     client: '고마바이오텍',
     title: '고마바이오텍\n홈페이지',
     year: '2021',
@@ -395,6 +425,7 @@ const PROJECTS = [
   {
     index: 31,
     num: '32',
+    contribution: 95,
     client: '닥터킨베인',
     title: '닥터킨베인\n의료 홈페이지',
     year: '2021',
@@ -407,6 +438,7 @@ const PROJECTS = [
   {
     index: 32,
     num: '33',
+    contribution: 20,
     client: '스타폴리오',
     title: '스타폴리오\n포트폴리오 플랫폼',
     year: '2021',
@@ -421,6 +453,7 @@ const PROJECTS = [
   {
     index: 33,
     num: '34',
+    contribution: 100,
     client: '한샘',
     title: '한샘\n홈플래너',
     year: '2020',
@@ -433,6 +466,7 @@ const PROJECTS = [
   {
     index: 34,
     num: '35',
+    contribution: 100,
     client: '코인버틀러',
     title: '코인버틀러\n핀테크 서비스',
     year: '2020',
@@ -445,6 +479,7 @@ const PROJECTS = [
   {
     index: 35,
     num: '36',
+    contribution: 20,
     client: 'KT · 제나',
     title: '제나 KT MEC\n플랫폼',
     year: '2020',
@@ -456,6 +491,7 @@ const PROJECTS = [
   {
     index: 36,
     num: '37',
+    contribution: 100,
     client: '제나',
     title: '제나 규제자유특구\n플랫폼',
     year: '2020',
@@ -467,6 +503,7 @@ const PROJECTS = [
   {
     index: 37,
     num: '38',
+    contribution: 20,
     client: '한국야쿠르트',
     title: '한국야쿠르트\n랜선 견학',
     year: '2020',
@@ -479,6 +516,7 @@ const PROJECTS = [
   {
     index: 38,
     num: '39',
+    contribution: 30,
     client: '랩스온라인',
     title: '랩스온라인\n교육 플랫폼',
     year: '2020',
@@ -491,6 +529,7 @@ const PROJECTS = [
   {
     index: 39,
     num: '40',
+    contribution: 20,
     client: '현대큐밍',
     title: '현대큐밍\n브랜드 사이트',
     year: '2020',
@@ -767,6 +806,22 @@ function _openModal(modal, data) {
   modal.querySelector('#modalStack').innerHTML = data.stack
     .map((s) => `<li class="modal-tag">${s}</li>`)
     .join('');
+
+  const contribution = data.contribution ?? null;
+  const contribWrap = modal.querySelector('#modalContribution');
+  if (contribution != null) {
+    const fillEl = modal.querySelector('#modalContributionFill');
+    const pctEl = modal.querySelector('#modalContributionPct');
+    fillEl.style.transition = 'none';
+    fillEl.style.width = '0%';
+    fillEl.getBoundingClientRect(); // reflow
+    fillEl.style.transition = '';
+    fillEl.style.width = `${contribution}%`;
+    pctEl.textContent = `${contribution}%`;
+    contribWrap.hidden = false;
+  } else {
+    contribWrap.hidden = true;
+  }
 
   const linkEl = modal.querySelector('#modalLink');
   if (data.link) {
