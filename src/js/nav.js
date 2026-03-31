@@ -10,6 +10,16 @@ export function initNav() {
   const links = document.getElementById('navLinks');
   const allLinks = links?.querySelectorAll('a');
 
+  // ── Disable transition during resize (prevents slide-out animation) ──
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    document.body.classList.add('resize-no-transition');
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      document.body.classList.remove('resize-no-transition');
+    }, 100);
+  });
+
   // ── Scroll state (add .scrolled after 60px) ──────────────────
   const onScroll = () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);

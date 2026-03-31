@@ -113,6 +113,10 @@
   }
 }
 
+.resize-no-transition .nav__links {
+  transition: none !important;
+}
+
 .nav__cta {
   padding: 10px 24px;
   border: 1px solid $color-border;
