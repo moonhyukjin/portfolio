@@ -23,7 +23,7 @@ const PROJECTS = [
     type: '리뉴얼작업',
     desc: 'SPC그룹 온라인 매거진 사이트를 WordPress 기반으로 부분 리뉴얼하는 작업을 담당했습니다. 기존 테마 구조를 유지하며 신규 섹션 마크업 및 스타일 작업을 진행했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/spc-magazine.png',
+    image: '/projects/spc-magazine.webp',
   },
 
   // === 2024 ===
@@ -78,7 +78,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: 'MY names 브랜드 소개 랜딩페이지를 단독으로 구축했습니다. GSAP를 활용한 스크롤 인터랙션으로 브랜드 정체성을 시각적으로 전달하는 페이지를 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'GSAP'],
-    image: '/projects/my-names.png',
+    image: '/projects/my-names.webp',
   },
   {
     index: 5,
@@ -91,7 +91,7 @@ const PROJECTS = [
     type: '운영건',
     desc: '몽골 현지 쇼핑몰 munkh의 유지보수 작업에 참여했습니다. 퍼스트몰 CMS 기반으로 반응형 페이지를 관리하며 신규 UI 작업을 진행했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', '퍼스트몰 CMS'],
-    image: '/projects/munkh.png',
+    image: '/projects/munkh.webp',
   },
 
   // === 2023 ===
@@ -107,7 +107,7 @@ const PROJECTS = [
     type: '리뉴얼작업',
     desc: '한국전기기술인협회 공식 홈페이지 전면 리뉴얼을 단독으로 담당했습니다. 사용자·관리자 페이지 전체를 반응형으로 퍼블리싱하며 기존 UI를 신규 디자인으로 통일했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/keea.png',
+    image: '/projects/keea.webp',
     featured: true,
   },
   {
@@ -122,7 +122,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: 'EV 전기차 충전기 관리 웹앱의 사용자 페이지 퍼블리싱을 전담했습니다. 총 103개 사용자 화면을 반응형으로 구현하며 bottom-sheet draggable 기능을 직접 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/easy-charger.png',
+    image: '/projects/easy-charger.webp',
     featured: true,
   },
   {
@@ -137,7 +137,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: 'KG MOBILITY(구 쌍용자동차) 공식 홈페이지 구축 프로젝트에서 관리자 페이지 91개를 전담 퍼블리싱했습니다. Sneat Bootstrap 테마를 활용하여 일관된 관리자 UI를 구성했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Bootstrap'],
-    image: '/projects/kg-mobility.png',
+    image: '/projects/kg-mobility.webp',
     featured: true,
   },
   {
@@ -152,7 +152,7 @@ const PROJECTS = [
     type: '운영건',
     desc: '삼성카드 월별 프로모션 랜딩페이지 제작 및 운영 업무를 담당했습니다. 매월 말 12시 정각 배포 사이클에 맞춰 진행하는 다양한 랜딩페이지를 반응형 마크업 및 QA를 지속적으로 진행했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/samsung-card.png',
+    image: '/projects/samsung-card.webp',
     featured: true,
   },
 
@@ -169,7 +169,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '서울특별시 시립병원 소개 페이지를 단독으로 구축했습니다. Swiper를 활용한 슬라이드 구성과 clip-path 속성을 적용하여 공공기관 특성에 맞는 UI를 퍼블리싱했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Swiper'],
-    image: '/projects/seoul-hospital.png',
+    image: '/projects/seoul-hospital.webp',
   },
   {
     index: 11,
@@ -183,7 +183,7 @@ const PROJECTS = [
     type: '리뉴얼작업',
     desc: 'LG그룹 ESG 페이지 추가 및 리뉴얼 작업에 참여했습니다. GSAP ScrollTrigger를 활용한 스크롤 인터랙션으로 그룹 지속가능경영 성과를 시각적으로 전달하는 페이지를 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'GSAP', 'ScrollTrigger'],
-    image: '/projects/lg-esg.gif',
+    image: '/projects/lg-esg.webp',
     featured: true,
   },
   {
@@ -198,7 +198,7 @@ const PROJECTS = [
     type: '리뉴얼작업',
     desc: '사자고 쇼핑몰 리뉴얼 프로젝트에서 관리자 페이지 55개를 전담 퍼블리싱했습니다. prefers-color-scheme 미디어쿼리를 활용하여 다크모드를 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/sajago.png',
+    image: '/projects/sajago.webp',
   },
   {
     index: 13,
@@ -212,7 +212,7 @@ const PROJECTS = [
     type: '운영건',
     desc: 'BNP파리바 카디프생명 공식 홈페이지 유지보수 및 신규 페이지 제작을 담당했습니다. Morpheus CMS를 활용하여 보험 상품 안내 페이지를 금융 규정에 맞게 안정적으로 운영했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Morpheus CMS'],
-    image: '/projects/cardif.png',
+    image: '/projects/cardif.webp',
     featured: true,
   },
   {
@@ -227,7 +227,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '롯데이노베이트 NFT 플랫폼 구축에 참여하여 사용자·관리자 페이지 퍼블리싱을 담당했습니다. React·Next.js 기반으로 styled-components를 활용한 CSS-in-JS 방식으로 컴포넌트를 구현했습니다.',
     stack: ['React', 'Next.js', 'styled-components', 'JavaScript'],
-    image: '/projects/lotte-nft.png',
+    image: '/projects/lotte-nft.webp',
     featured: true,
   },
   {
@@ -255,7 +255,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '모바일 게임 킹덤스토리 홍보 랜딩페이지를 단독으로 구축했습니다. fullpage.js 섹션 전환 시 GSAP 모션과 parallax 효과를 적용하여 게임 세계관을 몰입감 있게 전달했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'GSAP', 'fullpage.js', 'Swiper'],
-    image: '/projects/kingdom-story.gif',
+    image: '/projects/kingdom-story.webp',
   },
   {
     index: 17,
@@ -282,7 +282,7 @@ const PROJECTS = [
     type: '운영건',
     desc: '헤이마리 쇼핑몰 구축 및 장기 유지보수를 담당했습니다. WordPress child theme를 활용하여 테마를 커스터마이징하고 반응형 레이아웃과 콘텐츠 페이지를 지속 관리했습니다.',
     stack: ['WordPress', 'HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/heymari.png',
+    image: '/projects/heymari.webp',
   },
 
   // === 2021 ===
@@ -324,7 +324,7 @@ const PROJECTS = [
     type: '리뉴얼작업',
     desc: '코맥스 홈페이지 리뉴얼 프로젝트에서 사용자·관리자 페이지 퍼블리싱에 참여했습니다. JavaScript로 스크롤 인터랙션을 구현하며 영문 다국어 반응형 페이지를 작업했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/commax.gif',
+    image: '/projects/commax.webp',
     featured: true,
   },
   {
@@ -339,7 +339,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '소프트웨어중심협의회 경기대학교 홈페이지 구축에서 전체 61개 페이지의 80%를 담당했습니다. Swiper의 direction: rtl 속성을 활용하여 역방향 슬라이드를 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Swiper'],
-    image: '/projects/kyonggi-univ.gif',
+    image: '/projects/kyonggi-univ.webp',
   },
   {
     index: 23,
@@ -366,7 +366,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: 'SKYER, INC 기업 브랜드 홈페이지 구축 프로젝트에서 전체 5개 페이지의 50%를 담당했습니다. Swiper와 AOS를 활용하여 적응형 기반의 인터랙션 페이지를 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Swiper', 'AOS'],
-    image: '/projects/skyer.png',
+    image: '/projects/skyer.webp',
   },
   {
     index: 25,
@@ -380,7 +380,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '코딩 교육 플랫폼 올코딩의 사용자 페이지 3개를 담당하여 구축했습니다. WordPress 테마 및 CMS를 활용하여 강의 목록·수강 페이지를 반응형으로 퍼블리싱했습니다.',
     stack: ['WordPress', 'HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/allcoding.png',
+    image: '/projects/allcoding.webp',
   },
   {
     index: 26,
@@ -394,7 +394,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '반품마켓 퍼블리싱 프로젝트에서 관리자 페이지 24개를 전담하고 사용자 페이지 일부를 담당했습니다. 웹앱 형식에 맞춰 jquery.mobile을 활용하여 모바일 UI를 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'jquery.mobile', 'Bootstrap'],
-    image: '/projects/return-market.png',
+    image: '/projects/return-market.webp',
   },
   {
     index: 27,
@@ -408,7 +408,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '트리플에이전시 커리어 관리 앱 퍼블리싱 프로젝트에 참여하여 54개 화면 중 30%를 담당했습니다. React Native 기반으로 앱 화면을 구현하며 첫 모바일 앱 퍼블리싱을 경험했습니다.',
     stack: ['React Native', 'JavaScript', 'CSS-in-JS'],
-    image: '/projects/triple-agency.png',
+    image: '/projects/triple-agency.webp',
     featured: true,
   },
   {
@@ -423,7 +423,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: 'WWF 코리아 어스아워 환경 캠페인 페이지 2개를 단독으로 구축했습니다. 호버 이벤트를 모바일 환경에서 클릭 이벤트로 전환하는 처리를 적용하여 반응형 인터랙션을 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/wwf-earth-hour.png',
+    image: '/projects/wwf-earth-hour.webp',
   },
   {
     index: 29,
@@ -437,7 +437,7 @@ const PROJECTS = [
     type: '운영건',
     desc: '음악인 커뮤니티 플랫폼 잼메이츠의 구축 및 유지보수를 담당했습니다. WordPress CMS와 Swiper coverflow 모드를 활용하여 팀 매칭 기능의 반응형 페이지를 구현했습니다.',
     stack: ['WordPress', 'HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Swiper'],
-    image: '/projects/jammates.png',
+    image: '/projects/jammates.webp',
   },
   {
     index: 30,
@@ -451,7 +451,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '고마바이오텍 관리자 홈페이지 75개 페이지를 단독으로 구축했습니다. Bootstrap 템플릿을 기반으로 반응형 관리자 UI를 구성하며 Bootstrap 활용 역량을 키웠습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Bootstrap'],
-    image: '/projects/komabiotech.png',
+    image: '/projects/komabiotech.webp',
   },
   {
     index: 31,
@@ -465,7 +465,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '닥터킨베인 홈페이지 구축에서 전체 73개 페이지의 95%를 담당했습니다. 이미지와 텍스트가 혼합된 레이아웃에서 반응형 이질감을 없애기 위해 vw 단위를 활용하여 구현했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/dr-kinbane.png',
+    image: '/projects/dr-kinbane.webp',
   },
   {
     index: 32,
@@ -479,7 +479,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '스타폴리오 홈페이지 구축 프로젝트에 참여하여 48개 페이지 중 일부를 담당했습니다. 다양한 해상도에서 깨지지 않는 반응형 테이블을 구현하는 작업을 진행했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/starfolio.png',
+    image: '/projects/starfolio.webp',
   },
 
   // === 2020 ===
@@ -495,7 +495,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '한샘 홈플래너 서비스 소개 랜딩페이지 1개를 단독으로 구축했습니다. HTML/CSS/jQuery를 활용하여 반응형 레이아웃을 퍼블리싱했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/hanssem-homeplanner.png',
+    image: '/projects/hanssem-homeplanner.webp',
   },
   {
     index: 34,
@@ -509,7 +509,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '코인버틀러 랜딩페이지 및 관리자 페이지 총 10개를 단독으로 구축했습니다. 사용자 페이지는 반응형으로 직접 구현하고, 관리자 페이지는 Bootstrap 템플릿을 적용하여 구성했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Bootstrap'],
-    image: '/projects/coin-butler.png',
+    image: '/projects/coin-butler.webp',
   },
   {
     index: 35,
@@ -549,7 +549,7 @@ const PROJECTS = [
     type: '운영건',
     desc: '한국야쿠르트 랜선 견학 홈페이지 추가 개발에 참여하여 5개 페이지의 50%를 담당했습니다. HTML/CSS/jQuery를 활용하여 이벤트 페이지를 반응형으로 퍼블리싱했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/yakult-tour.png',
+    image: '/projects/yakult-tour.webp',
   },
   {
     index: 38,
@@ -563,7 +563,7 @@ const PROJECTS = [
     type: '신규작업',
     desc: '랩스온라인 사용자 페이지 구축 프로젝트에 참여하여 전체 17개 페이지의 일부를 담당했습니다. HTML/CSS/jQuery를 활용하여 반응형 페이지를 퍼블리싱한 첫 실무 프로젝트였습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/labs-online.png',
+    image: '/projects/labs-online.webp',
   },
   {
     index: 39,
@@ -577,7 +577,7 @@ const PROJECTS = [
     type: '운영건',
     desc: '현대큐밍 홈페이지 유지보수 프로젝트에 참여하여 전체 작업의 40%를 담당했습니다. HTML/CSS/jQuery를 활용하여 기존 페이지 수정 및 신규 페이지 작업을 진행했습니다.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
-    image: '/projects/hyundai-cuming.png',
+    image: '/projects/hyundai-cuming.webp',
   },
 
   // === 2026 (팀 프로젝트) ===
@@ -591,7 +591,7 @@ const PROJECTS = [
     role: '기획, 디자인, 퍼블리싱, 프론트엔드',
     desc: '프론트엔드 부트캠프 팀 프로젝트로, 반려견 맞춤 사료 및 간식 정기구독 서비스를 구축했습니다. 기획부터 디자인, 퍼블리싱, 프론트엔드 개발까지 전 과정을 팀원들과 함께 담당했습니다.',
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'JavaScript'],
-    image: '/projects/9Dog.png',
+    image: '/projects/9Dog.webp',
     type: '팀프로젝트',
     featured: true,
     link: 'https://github.com/FRONTENDBOOTCAMP-15th/final-06-GuDog?tab=readme-ov-file#9dog---%EB%B0%98%EB%A0%A4%EA%B2%AC-%EB%A7%9E%EC%B6%A4-%EC%82%AC%EB%A3%8C-%EB%B0%8F-%EA%B0%84%EC%8B%9D-%EC%A0%95%EA%B8%B0%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4',
